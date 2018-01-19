@@ -1,15 +1,62 @@
-# QAA Test Task
+# Тестовое задание QAA
 
-## Development server
+## Развернуть проект:
 
-Run `npm start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Установить node (вместе с ним установится и npm) - инструкций в сети полно, но если не получится - пишите - дополним readme
+2. Форкнуть и/или склонировать проект (форк можно сделать через github, клонирование через git clone в локальную папку)
+4. Перейти в папку проекта
+3. Выполнить `npm install`
 
-## Code scaffolding
+## Запустить проект (чтобы ознакомиться с интерфейсом и продумать тестовые сценарии):
 
-You can use any of @angular/cli code generators command.
+1. Выполнить `npm start`
+2. Открыть в браузере [http://localhost:4200](http://localhost:4200)
+3. При изменениях в коде webpack перекомпилирует код и страница браузера будет перезагружена
 
-[Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
+## Запустить e2e тесты:
+1. Выполнить `npm run e2e`
+2. В качестве примера реализован один e2e тест проверяющий корректность заголовка формы (`e2e` папка в корне проекта)
 
-## Running end-to-end tests
+--------------------------------
 
-Run `npm run e2e` or `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Задание:
+
+Необходимо написать e2e-тесты для этого приложения.
+
+## В идеале мы ожидаем:
+
+1. Текстовые файлы со сценариями тестов:
+- набор шагов - обычно 3-5 последовательных шага
+- каждый шаг имеет ожидаемый результат, который мы проверяем с помощью `expect`
+- также у сценариев бывают предусловия (но в текущем задании этим можно пренебречь)
+
+2. Сами e2e тесты по этим сценариям (полезные ссылки чуть ниже):
+- сценарии объединяем общим `describe`
+- внутри `describe` используем `it` для каждого шага с ожидаемым результатом
+- также мы ожидаем использование Page Objects и кастомного локатора (`byAutomationId` уже находится в файле `helpers.ts` и пример его использования есть в `app.e2e.ts`)
+
+### Пример простого сценария:
+
+1. Перейти по урлу в браузере
+2. Ожидание: урл страницы соответствует ожидаемому (стоит проверить на случай если сработали какие-нибудь редиректы, например)
+3. Найти элемент заголовка формы
+4. Ожидание: на странице мы найдем заголовок формы с текстом `My Super Form`
+
+## Примечания:
+
+- можно вносить изменения в любых файлах: в код приложения, в код шаблонов, добавлять те или иные хелперы и т.д.
+- можно пользоваться код-генератором [Angular CLI](https://github.com/angular/angular-cli) (он уже установлен в этом проекте)
+- можно задавать любые вопросы команде CRM (само задание разработано с нуля и нам важен любой фидбек)
+
+## Полезные ссылки:
+
+- Добавление стабильных локаторов верстки (automation-id) - [внутренняя wiki](https://wiki.tcsbank.ru/pages/viewpage.action?pageId=262571121)
+- [Protractor](http://www.protractortest.org/)
+- [Protractor tutorial](http://www.protractortest.org/#/tutorial),
+- [Protractor API](http://www.protractortest.org/#/api-overview),
+- [Protractor Page Objects](http://www.protractortest.org/#/page-objects)
+- [WebDriver](https://habrahabr.ru/post/152971/)
+- [Selenium server](https://selenium2.ru/)
+- [Node.js](https://ru.wikipedia.org/wiki/Node.js)
+- [Jasmine](https://habrahabr.ru/post/167173/)
+- Тестируем верстку правильно [habr](https://habrahabr.ru/company/2gis/blog/277457/)
