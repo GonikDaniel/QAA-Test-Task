@@ -5,32 +5,32 @@
 
         <h1 automation-id="form-title">My Super Form</h1>
 
-        <label>Name
-          <input type="text" formControlName="name">
+        <label automation-id="label-name">Name
+          <input automation-id="input-name" type="text" formControlName="name">
         </label>
-        <div class="alert" *ngIf="!superForm.controls['name'].valid && superForm.controls['name'].touched">
+        <div automation-id="alert-name" class="alert" *ngIf="!superForm.controls['name'].valid && superForm.controls['name'].touched">
           {{ titleAlert }}
         </div>
 
 
-        <label>Description
-          <textarea formControlName="description"></textarea>
+        <label automation-id="label-description">Description
+          <textarea automation-id="comment" formControlName="description"></textarea>
         </label>
-        <div class="alert" *ngIf="!superForm.controls['description'].valid && superForm.controls['description'].touched">
+        <div automation-id="alert-description" class="alert"  *ngIf="!superForm.controls['description'].valid && superForm.controls['description'].touched">
           You must specify a description that's between 30 and 500 characters.
         </div>
 
-        <label>Email
-          <input type="text" formControlName="email">
+        <label automation-id="label-email">Email
+          <input automation-id="input-email" type="text" formControlName="email">
         </label>
-        <div class="alert" *ngIf="!superForm.controls['email'].valid && superForm.controls['email'].touched">
+        <div automation-id="alert-email" automation-id="alert-form" class="alert" *ngIf="!superForm.controls['email'].valid && superForm.controls['email'].touched">
           You must specify a valid email.
         </div>
 
         <hr>
-        <input type="checkbox" name="validate" formControlName="validate" value="true"> Validate name length (minimum of 3 characters)
+        <input automation-id="input-checkbox" type="checkbox" name="validate" formControlName="validate" value="true"> <span id="checkbox-text">Validate name length (minimum of 3 characters)</span>
 
-        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!superForm.valid">
+        <input id="foo" automation-id="input-submit" type="submit" class="button expanded" value="Submit Form" [disabled]="!superForm.valid">
       </div>
     </div>
   </form>
@@ -41,12 +41,12 @@
     <div class="row columns">
       <h1 class="subheader">Success!</h1>
 
-      <p>Your name: {{ name }}</p>
-      <p>Your email: {{ email }}</p>
+      <p id="nameId">Your name: {{ name }}</p>
+      <p id="emailId">Your email: {{ email }}</p>
 
       <hr>
 
-      <p>Description: {{ description }}</p>
+      <p id="descriptionId">Description: {{ description }}</p>
     </div>
   </div>
 </ng-template>
